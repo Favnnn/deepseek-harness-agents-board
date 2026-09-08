@@ -1,0 +1,19 @@
+{
+	"name": "dsh-agents-board",
+	"version": "1.4.0",
+	"private": true,
+	"type": "module",
+	"dsh": {
+		"bundle": {
+			"patch": "./cordis.patch.yml"
+		},
+		"client": {
+			"platform": "web"
+		}
+	},
+	"exports": {
+		".": "./host.mjs",
+		"./client": "./client.js",
+		"./package.json": "./package.json"
+	}
+}
