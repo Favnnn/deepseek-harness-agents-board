@@ -2,6 +2,6 @@
 # The live row lives in %DSH_HOME%\profiles\web\cordis.patch.yml and points at
 # the installed copy under %DSH_HOME%\plugins\dsh-agents-board\host.mjs.
 - insert:
-  - name: file:///C:/Users/KKK/.dsh/plugins/dsh-agents-board/host.mjs
+  - name: file:///C:/Users/Vad/.dsh/plugins/dsh-agents-board/host.mjs
     config:
       enabled: true

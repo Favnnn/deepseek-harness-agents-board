@@ -2,7 +2,7 @@
 
 The agents board plugin for the DeepSeek Harness web GUI: one panel with every agent and subagent across all chats — steps, context, tokens, presets, live counters.
 
-Plugin version: **1.4.0**.
+Plugin version: **1.12.1**.
 
 > **Languages / Языки:** English first, the Russian original follows after the divider.
 > Английская версия — полный перевод русской части; обе описывают одну и ту же версию.
@@ -64,7 +64,7 @@ Three columns:
 | **Done** | not running, not blank, not archived |
 | **Archive** | the session is in the registry-wide archive |
 
-Inside a column, cards are sorted by last activity (freshest first). Blank placeholder sessions never reach the board. Subagents are full cards marked "subagent of «parent»"; clicking any card opens that session (subagents through their open-subagent address) and closes the panel.
+Inside a column, cards are sorted by last activity (freshest first). Blank placeholder sessions never reach the board. Subagents are full cards marked "subagent of «parent»"; clicking any card opens that session (subagents through their open-subagent address) and closes the panel. On a **Done** card, hovering slides an **Archive** button into the title row (right of the preset badge, animated; the badge shifts left smoothly). The verb is the same registry archive the sidebar menu uses. On an **Archive** card, hovering reveals **Hide** in the same spot. Activating either button animates the card away with the Web Animations API: the card fades out first, then collapses in height (computed start values, so the transition cannot be skipped) — the rows below slide up as the box shrinks — and only after the collapse does the action apply (registry archive, or view-hide on this browser). Hidden rows reappear through the "Show hidden (N)" toggle pinned right under the Archive column header — it stays in place above the list while the cards scroll beneath it. Revealed hidden rows never mix with the visible ones: they render as a separate group **below**, behind a thin "Hidden" divider line, and each grows out of the collapsed state with the same two-phase animation in reverse on reveal; toggling the group back off plays the same dissolve the card buttons use before the rows unmount. While revealed, each hidden row's button reads **Restore** and clicking it moves the row to the visible group with the same grow-out animation played at its destination, once per restore. The hidden set persists in `localStorage` (key `agents-board.hidden`).
 
 Three counters in the header:
 
@@ -121,7 +121,7 @@ A framed area with two settings; both apply immediately, without a restart (valu
 
 Плагин-«доска агентов» для web GUI DeepSeek Harness: одна панель со всеми агентами и субагентами из всех чатов — шаги, контекст, токены, режимы, живые счётчики.
 
-Версия плагина: **1.4.0**.
+Версия плагина: **1.12.1**.
 
 ## Установка
 
@@ -178,7 +178,7 @@ powershell -ExecutionPolicy Bypass -File uninstall.ps1
 | **Готово** | не запущена, не пустая, не в архиве |
 | **Архив** | сессия в глобальном архиве реестра |
 
-Внутри колонки карточки сортируются по времени последней активности (свежие сверху). Пустые сессии-заглушки (blank) на доску не попадают. Субагенты — полноценные карточки с пометкой «субагент «родитель»»; клик по любой карточке открывает эту сессию (для субагентов — через адрес открытого субагента) и закрывает панель.
+Внутри колонки карточки сортируются по времени последней активности (свежие сверху). Пустые сессии-заглушки (blank) на доску не попадают. Субагенты — полноценные карточки с пометкой «субагент «родитель»»; клик по любой карточке открывает эту сессию (для субагентов — через адрес открытого субагента) и закрывает панель. На карточке в **«Готово»** наведение плавно выезжает кнопкой **«В архив»** в строку названия (правее бейджа режима; бейдж мягко сдвигается влево) — тот же архив реестра, что и в меню сайдбара. На карточке в **«Архиве»** там же появляется **«Скрыть»**. Нажатие убирает карточку двухфазной анимацией через Web Animations API: сначала карточка растворяется, затем схлопывается по высоте (стартовые значения берутся из computed style, поэтому переход не может быть пропущен) — строки ниже поднимаются вместе со схлопыванием — и только после этого применяется действие (архивация реестра или скрытие вида в этом браузере). Скрытые строки появляются через переключатель «Показать скрытые (N)», закреплённый прямо под шапкой колонки «Архив» — он остаётся на месте над списком, пока карточки прокручиваются под ним. Раскрытые скрытые строки никогда не смешиваются с видимыми: они отображаются отдельной группой **ниже**, за тонкой линией-разделителем «Скрытые», и при раскрытии каждая вырастает из схлопнутого состояния той же двухфазной анимацией в обратную сторону; выключение тумблера перед демонтажом строк проигрывает то же растворение, что и кнопки на карточках. В режиме показа кнопка скрытой карточки читается **«Вернуть»** — клик переносит строку в видимую группу с той же анимацией вырастания, проигрываемой на новом месте один раз. Набор скрытых хранится в `localStorage` (ключ `agents-board.hidden`).
 
 В шапке три счётчика:
 

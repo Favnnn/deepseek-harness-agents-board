@@ -9,7 +9,7 @@ window.__ModuleLoader__.load({
 		let primitives = require("@deepseek-ai/dsh-client-ui-primitives");
 
 		//#region stylesheet
-		const css = ".aboard-backdrop{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--dsw-alias-label-primary) 22%,transparent)}.aboard-panel{position:absolute;display:flex;flex-direction:column;box-sizing:border-box;padding:14px 16px 16px;background:var(--dsw-specific-menu);border:1px solid var(--dsw-alias-border-l1);box-shadow:var(--dsw-elevation-prominent);border-radius:20px;--dsh-scrollbar-thumb:var(--dsw-alias-scrollbar-bg-l2);--dsh-scrollbar-thumb-hover:var(--dsw-alias-scrollbar-hover-l2)}.aboard-header{display:flex;align-items:center;gap:12px;flex:none;padding-bottom:10px;cursor:move;user-select:none;touch-action:none}.aboard-title{margin:0;font-size:14px;font-weight:600;line-height:20px;color:var(--dsw-alias-label-primary)}.aboard-counters{display:flex;flex:1;gap:6px;flex-wrap:wrap;min-width:0}.aboard-counter{display:inline-flex;align-items:center;gap:5px;padding:1px 8px;border-radius:999px;background:var(--dsw-alias-fill-l2);color:var(--dsw-alias-label-secondary);font-size:12px;line-height:20px;white-space:nowrap}.aboard-counter svg{flex:none}.aboard-close{flex:none;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:0;border-radius:8px;background:0 0;color:var(--dsw-alias-label-tertiary);cursor:pointer}.aboard-close:hover{color:var(--dsw-alias-label-primary);background:var(--dsw-alias-fill-l2)}.aboard-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;min-height:0;flex:1}.aboard-column{display:flex;flex-direction:column;min-height:0;gap:6px}.aboard-columnHead{flex:none;display:flex;align-items:center;gap:6px;padding:0 2px;font-size:12px;font-weight:600;line-height:18px;color:var(--dsw-alias-label-secondary)}.aboard-columnCount{color:var(--dsw-alias-label-tertiary);font-weight:400}.aboard-columnBody{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:2px}.aboard-empty{margin:6px 2px;font-size:12px;line-height:18px;color:var(--dsw-alias-label-tertiary)}.aboard-card{display:flex;flex-direction:column;gap:4px;align-items:stretch;width:100%;text-align:left;padding:8px 10px;border:1px solid var(--dsw-alias-border-l3);border-radius:10px;background:0 0;cursor:pointer;flex:none}.aboard-card:hover{background:var(--dsw-alias-fill-l2)}.aboard-cardTitleRow{display:flex;align-items:center;gap:6px;min-width:0}.aboard-cardName{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:18px;color:var(--dsw-alias-label-primary)}.aboard-cardPending{flex:none;font-size:11px;line-height:16px;color:var(--dsw-alias-state-warn-primary)}.aboard-cardMeta{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:11px;line-height:16px;color:var(--dsw-alias-label-tertiary);font-family:var(--dsw-font-mono)}.aboard-cardContext{font-size:11px;line-height:16px;color:var(--dsw-alias-label-secondary);font-family:var(--dsw-font-mono)}.aboard-cardSub{font-size:11px;line-height:16px;color:var(--dsw-alias-label-secondary)}.aboard-cardMode{flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;line-height:16px;color:var(--dsw-alias-label-secondary);border:1px solid var(--dsw-alias-border-l3);border-radius:999px;padding:0 6px}.aboard-progress{display:block;height:4px;border-radius:999px;background:color-mix(in srgb,var(--dsw-alias-label-tertiary) 30%,transparent);overflow:hidden}.aboard-progressFill{display:block;height:100%;border-radius:999px;transition:width .2s ease}.aboard-progressOk{background:var(--dsw-alias-state-success-primary)}.aboard-progressWarn{background:var(--dsw-alias-state-warn-primary)}.aboard-progressHot{background:var(--dsw-alias-state-error-primary)}.aboard-grip{position:absolute;z-index:2;touch-action:none}.aboard-gripE{top:0;right:0;bottom:0;width:6px;cursor:ew-resize}.aboard-gripS{left:0;right:0;bottom:0;height:6px;cursor:ns-resize}.aboard-gripSe{right:0;bottom:0;width:16px;height:16px;cursor:nwse-resize;border-bottom-right-radius:16px;background:repeating-linear-gradient(-45deg,transparent 0 4px,var(--dsw-alias-label-tertiary) 4px 5px);opacity:.4}.aboard-button{display:inline-flex;align-items:center;gap:8px;min-height:28px;padding:3px 6px;border:0;border-radius:8px;background:0 0;color:var(--dsw-alias-label-tertiary);cursor:pointer;font-size:12px;line-height:18px}.aboard-button:hover{color:var(--dsw-alias-label-secondary)}.aboard-buttonLabel{white-space:nowrap}.aboard-settings{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:12px;border:1px solid var(--dsw-alias-border-l3);border-radius:12px}.aboard-settingsText{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}.aboard-settingsTitle{margin:0;font-size:13px;font-weight:600;line-height:18px;color:var(--dsw-alias-label-primary)}.aboard-settingsDesc{margin:0;font-size:12px;line-height:16px;color:var(--dsw-alias-label-tertiary)}.aboard-settingsControls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}.aboard-languageRow{display:flex;align-items:center;gap:8px}.aboard-languageLabel{font-size:12px;line-height:18px;color:var(--dsw-alias-label-tertiary);white-space:nowrap}.aboard-segmented{display:inline-flex;align-items:stretch;border:1px solid var(--dsw-alias-border-l3);border-radius:8px;background:var(--dsw-alias-fill-l2);padding:2px;gap:2px}.aboard-segment{border:0;border-radius:6px;background:0 0;color:var(--dsw-alias-label-tertiary);font-size:11px;line-height:18px;padding:0 10px;cursor:pointer;white-space:nowrap}.aboard-segment:hover{color:var(--dsw-alias-label-secondary)}.aboard-segmentActive{background:var(--dsw-specific-menu);color:var(--dsw-alias-label-primary)}.aboard-segment:disabled{cursor:default;opacity:.5}";
+		const css = ".aboard-backdrop{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--dsw-alias-label-primary) 22%,transparent)}.aboard-panel{position:absolute;display:flex;flex-direction:column;box-sizing:border-box;padding:14px 16px 16px;background:var(--dsw-specific-menu);border:1px solid var(--dsw-alias-border-l1);box-shadow:var(--dsw-elevation-prominent);border-radius:20px;--dsh-scrollbar-thumb:var(--dsw-alias-scrollbar-bg-l2);--dsh-scrollbar-thumb-hover:var(--dsw-alias-scrollbar-hover-l2)}.aboard-header{display:flex;align-items:center;gap:12px;flex:none;padding-bottom:10px;cursor:move;user-select:none;touch-action:none}.aboard-title{margin:0;font-size:14px;font-weight:600;line-height:20px;color:var(--dsw-alias-label-primary)}.aboard-counters{display:flex;flex:1;gap:6px;flex-wrap:wrap;min-width:0}.aboard-counter{display:inline-flex;align-items:center;gap:5px;padding:1px 8px;border-radius:999px;background:var(--dsw-alias-fill-l2);color:var(--dsw-alias-label-secondary);font-size:12px;line-height:20px;white-space:nowrap}.aboard-counter svg{flex:none}.aboard-close{flex:none;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:0;border-radius:8px;background:0 0;color:var(--dsw-alias-label-tertiary);cursor:pointer}.aboard-close:hover{color:var(--dsw-alias-label-primary);background:var(--dsw-alias-fill-l2)}.aboard-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;min-height:0;flex:1}.aboard-column{display:flex;flex-direction:column;min-height:0;gap:6px}.aboard-columnHead{flex:none;display:flex;align-items:center;gap:6px;padding:0 2px;font-size:12px;font-weight:600;line-height:18px;color:var(--dsw-alias-label-secondary)}.aboard-columnCount{color:var(--dsw-alias-label-tertiary);font-weight:400}.aboard-columnBody{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:2px}.aboard-empty{margin:6px 2px;font-size:12px;line-height:18px;color:var(--dsw-alias-label-tertiary)}.aboard-card{position:relative;display:flex;flex-direction:column;gap:4px;align-items:stretch;width:100%;text-align:left;padding:8px 10px;border:1px solid var(--dsw-alias-border-l3);border-radius:10px;background:0 0;cursor:pointer;flex:none}.aboard-card:hover{background:var(--dsw-alias-fill-l2)}.aboard-cardTitleRow{display:flex;align-items:center;gap:6px;min-width:0}.aboard-cardName{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:18px;color:var(--dsw-alias-label-primary)}.aboard-cardPending{flex:none;font-size:11px;line-height:16px;color:var(--dsw-alias-state-warn-primary)}.aboard-cardMeta{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:11px;line-height:16px;color:var(--dsw-alias-label-tertiary);font-family:var(--dsw-font-mono)}.aboard-cardContext{font-size:11px;line-height:16px;color:var(--dsw-alias-label-secondary);font-family:var(--dsw-font-mono)}.aboard-cardSub{font-size:11px;line-height:16px;color:var(--dsw-alias-label-secondary)}.aboard-cardMode{flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;line-height:16px;color:var(--dsw-alias-label-secondary);border:1px solid var(--dsw-alias-border-l3);border-radius:999px;padding:0 6px;transition:margin-left .18s ease}.aboard-progress{display:block;height:4px;border-radius:999px;background:color-mix(in srgb,var(--dsw-alias-label-tertiary) 30%,transparent);overflow:hidden}.aboard-progressFill{display:block;height:100%;border-radius:999px;transition:width .2s ease}.aboard-progressOk{background:var(--dsw-alias-state-success-primary)}.aboard-progressWarn{background:var(--dsw-alias-state-warn-primary)}.aboard-progressHot{background:var(--dsw-alias-state-error-primary)}.aboard-cardActions{flex:none;display:flex;align-items:center;gap:4px;overflow:hidden;max-width:0;opacity:0;margin-left:-6px;transition:max-width .18s ease,opacity .18s ease,margin-left .18s ease}.aboard-card:hover .aboard-cardActions,.aboard-card:focus-visible .aboard-cardActions,.aboard-card:focus-within .aboard-cardActions{max-width:96px;opacity:1;margin-left:0}.aboard-cardAction{display:inline-flex;align-items:center;height:18px;padding:0 7px;border:1px solid var(--dsw-alias-border-l2);border-radius:999px;background:var(--dsw-specific-menu);color:var(--dsw-alias-label-secondary);font-size:10px;line-height:16px;cursor:pointer;white-space:nowrap;opacity:0;transition:opacity .12s ease .06s}.aboard-card:hover .aboard-cardAction,.aboard-card:focus-visible .aboard-cardAction,.aboard-card:focus-within .aboard-cardAction{opacity:1}.aboard-cardAction:hover{color:var(--dsw-alias-label-primary);background:var(--dsw-alias-fill-l2)}.aboard-hiddenBar{flex:none;display:flex;justify-content:flex-start;padding:0 2px}.aboard-hiddenToggle{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 9px;border:1px dashed var(--dsw-alias-border-l2);border-radius:999px;background:0 0;color:var(--dsw-alias-label-tertiary);font-size:11px;line-height:20px;cursor:pointer}.aboard-hiddenToggle:hover{color:var(--dsw-alias-label-secondary)}.aboard-hiddenDivider{display:flex;align-items:center;gap:8px;padding:2px 2px;color:var(--dsw-alias-label-tertiary);font-size:10px;line-height:14px;letter-spacing:.4px;text-transform:uppercase;user-select:none}.aboard-hiddenDivider::before,.aboard-hiddenDivider::after{content:'';flex:1;height:1px;background:var(--dsw-alias-border-l2)}.aboard-grip{position:absolute;z-index:2;touch-action:none}.aboard-gripE{top:0;right:0;bottom:0;width:6px;cursor:ew-resize}.aboard-gripS{left:0;right:0;bottom:0;height:6px;cursor:ns-resize}.aboard-gripSe{right:0;bottom:0;width:16px;height:16px;cursor:nwse-resize;border-bottom-right-radius:16px;background:repeating-linear-gradient(-45deg,transparent 0 4px,var(--dsw-alias-label-tertiary) 4px 5px);opacity:.4}.aboard-button{display:inline-flex;align-items:center;gap:8px;min-height:28px;padding:3px 6px;border:0;border-radius:8px;background:0 0;color:var(--dsw-alias-label-tertiary);cursor:pointer;font-size:12px;line-height:18px}.aboard-button:hover{color:var(--dsw-alias-label-secondary)}.aboard-buttonLabel{white-space:nowrap}.aboard-settings{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:12px;border:1px solid var(--dsw-alias-border-l3);border-radius:12px}.aboard-settingsText{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}.aboard-settingsTitle{margin:0;font-size:13px;font-weight:600;line-height:18px;color:var(--dsw-alias-label-primary)}.aboard-settingsDesc{margin:0;font-size:12px;line-height:16px;color:var(--dsw-alias-label-tertiary)}.aboard-settingsControls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}.aboard-languageRow{display:flex;align-items:center;gap:8px}.aboard-languageLabel{font-size:12px;line-height:18px;color:var(--dsw-alias-label-tertiary);white-space:nowrap}.aboard-segmented{display:inline-flex;align-items:stretch;border:1px solid var(--dsw-alias-border-l3);border-radius:8px;background:var(--dsw-alias-fill-l2);padding:2px;gap:2px}.aboard-segment{border:0;border-radius:6px;background:0 0;color:var(--dsw-alias-label-tertiary);font-size:11px;line-height:18px;padding:0 10px;cursor:pointer;white-space:nowrap}.aboard-segment:hover{color:var(--dsw-alias-label-secondary)}.aboard-segmentActive{background:var(--dsw-specific-menu);color:var(--dsw-alias-label-primary)}.aboard-segment:disabled{cursor:default;opacity:.5}";
 		const tagId = "dsh-agents-board/board.css";
 		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId) + "]") === null) {
 			const tag = document.createElement("style");
@@ -183,12 +183,210 @@ window.__ModuleLoader__.load({
 			return next;
 		}
 		//#endregion
+		//#region lib/types/client/hidden-archive.js
+		/** localStorage key holding the client-only hidden-session id list. */
+		const HIDDEN_KEY = "agents-board.hidden";
+		/**
+		 * Read the client-only hidden set. The board's Archive column stays the
+		 * registry archive; this list only hides rows from view on this browser.
+		 * @returns {Set<string>} hidden session ids.
+		 */
+		function readHidden() {
+			try {
+				const raw = localStorage.getItem(HIDDEN_KEY);
+				if (!raw) return new Set();
+				const parsed = JSON.parse(raw);
+				if (!Array.isArray(parsed)) return new Set();
+				return new Set(parsed.filter((entry) => typeof entry === "string"));
+			} catch {
+				// Unreadable storage: show everything rather than losing rows.
+				return new Set();
+			}
+		}
+		function writeHidden(hidden) {
+			try {
+				localStorage.setItem(HIDDEN_KEY, JSON.stringify([...hidden]));
+			} catch {
+				// Unwritable storage keeps hiding session-only.
+			}
+		}
+		/** Toggle one id out of (or back into) the client-only hidden set. */
+		function toggleHidden(hidden, id) {
+			const next = new Set(hidden);
+			if (next.has(id)) next.delete(id);
+			else next.add(id);
+			writeHidden(next);
+			return next;
+		}
+		//#endregion
+		//#region lib/types/client/exit-animation.js
+		/** Fade phase length in ms. */
+		const EXIT_FADE_MS = 240;
+		/** Collapse phase length in ms. */
+		const EXIT_COLLAPSE_MS = 220;
+		/** Flex gap between stacked cards, compensated by a negative bottom margin. */
+		const EXIT_GAP_PX = 6;
+		/**
+		 * Two-phase exit via the Web Animations API: fade out, then collapse the
+		 * measured height to zero (rows below ride the shrink), then `commit`
+		 * applies the action. WAAPI is used instead of CSS transitions so the
+		 * explicit computed start values cannot be skipped. Deliberately no
+		 * reduced-motion shortcut: the dissolve is the requested feedback. If the
+		 * verb leaves the row mounted (a failed archive), the fill animations are
+		 * cancelled so the card fades back in.
+		 * @returns {[object, (commit: () => void) => void]} [cardRef, beginExit]
+		 */
+		function useExitAnimation() {
+			const cardRef = react.useRef(null);
+			const commitRef = react.useRef(null);
+			const animRef = react.useRef([]);
+			react.useEffect(() => () => {
+				for (const animation of animRef.current) animation.cancel();
+				animRef.current = [];
+				const pending = commitRef.current;
+				commitRef.current = null;
+				if (pending) pending();
+			}, []);
+			const beginExit = (commit) => {
+				const el = cardRef.current;
+				if (!el || commitRef.current !== null) return;
+				if (typeof el.animate !== "function") {
+					commit();
+					return;
+				}
+				commitRef.current = commit;
+				el.style.overflow = "hidden";
+				const fade = el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: EXIT_FADE_MS, easing: "ease", fill: "forwards" });
+				animRef.current = [fade];
+				fade.onfinish = () => {
+					if (commitRef.current === null) return;
+					const cs = window.getComputedStyle(el);
+					const collapse = el.animate([
+						{
+							height: cs.height,
+							marginBottom: "0px",
+							paddingTop: cs.paddingTop,
+							paddingBottom: cs.paddingBottom,
+							borderTopWidth: cs.borderTopWidth,
+							borderBottomWidth: cs.borderBottomWidth,
+							opacity: 0
+						},
+						{
+							height: "0px",
+							marginBottom: "-" + EXIT_GAP_PX + "px",
+							paddingTop: "0px",
+							paddingBottom: "0px",
+							borderTopWidth: "0px",
+							borderBottomWidth: "0px",
+							opacity: 0
+						}
+					], { duration: EXIT_COLLAPSE_MS, easing: "ease", fill: "forwards" });
+					animRef.current = [collapse];
+					collapse.onfinish = () => {
+						const pending = commitRef.current;
+						commitRef.current = null;
+						animRef.current = [];
+						if (pending) pending();
+						// React removes the committed row on its next render (and an
+						// archive RPC round-trip may come later), so restoring a card
+						// whose verb is still in flight would flash it back to full
+						// size first. Re-check after React has surely settled; if the
+						// row survived (failed archive), it then fades back in.
+						setTimeout(() => {
+							if (el.isConnected) {
+								el.style.overflow = "";
+								collapse.cancel();
+							}
+						}, 300);
+					};
+				};
+			};
+			return [cardRef, beginExit];
+		}
+		/**
+		 * Reverse of the exit: a revealed hidden row grows out of the collapsed
+		 * state while fading in. Run right after mount (before paint) so the row
+		 * never flashes at full size.
+		 * @param {HTMLElement} el - the freshly mounted card node.
+		 */
+		function playEnterAnimation(el) {
+			if (!el || typeof el.animate !== "function") return;
+			const cs = window.getComputedStyle(el);
+			el.style.overflow = "hidden";
+			const animation = el.animate([
+				{
+					height: "0px",
+					opacity: 0,
+					paddingTop: "0px",
+					paddingBottom: "0px",
+					borderTopWidth: "0px",
+					borderBottomWidth: "0px",
+					marginBottom: "-" + EXIT_GAP_PX + "px"
+				},
+				{
+					height: cs.height,
+					opacity: 1,
+					paddingTop: cs.paddingTop,
+					paddingBottom: cs.paddingBottom,
+					borderTopWidth: cs.borderTopWidth,
+					borderBottomWidth: cs.borderBottomWidth,
+					marginBottom: "0px"
+				}
+			], { duration: EXIT_FADE_MS + EXIT_COLLAPSE_MS, easing: "ease" });
+			animation.onfinish = () => {
+				el.style.overflow = "";
+				animation.cancel();
+			};
+		}
+		/**
+		 * Same dissolve as the card buttons use, but self-contained: no commit and
+		 * no restore-on-failure — the caller removes the node (or cancels) after
+		 * the collapse. Returns a cancel function that restores the card, used
+		 * when a re-reveal interrupts the exit.
+		 * @param {HTMLElement} el - the card node leaving the hidden group.
+		 * @returns {(() => void) | null} cancel function, or null when unsupported.
+		 */
+		function playExitAnimation(el) {
+			if (!el || typeof el.animate !== "function") return null;
+			const cs = window.getComputedStyle(el);
+			el.style.overflow = "hidden";
+			const fade = el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: EXIT_FADE_MS, easing: "ease", fill: "forwards" });
+			const collapse = el.animate([
+				{
+					height: cs.height,
+					marginBottom: "0px",
+					paddingTop: cs.paddingTop,
+					paddingBottom: cs.paddingBottom,
+					borderTopWidth: cs.borderTopWidth,
+					borderBottomWidth: cs.borderBottomWidth,
+					opacity: 0
+				},
+				{
+					height: "0px",
+					marginBottom: "-" + EXIT_GAP_PX + "px",
+					paddingTop: "0px",
+					paddingBottom: "0px",
+					borderTopWidth: "0px",
+					borderBottomWidth: "0px",
+					opacity: 0
+				}
+			], { duration: EXIT_COLLAPSE_MS, delay: EXIT_FADE_MS, easing: "ease", fill: "forwards" });
+			return () => {
+				fade.cancel();
+				collapse.cancel();
+				el.style.overflow = "";
+			};
+		}
+		//#endregion
 		//#region lib/types/client/locales.js
 		/** English dictionary — the fallback terminus of every locale chain. */
 		const en = {
 			"board.title": "Agents board",
 			"board.close": "Close",
 			"board.resize": "Drag to resize",
+			"board.showHidden": "Show hidden ({count})",
+			"board.hideHidden": "Hide shown ({count})",
+			"board.hiddenLabel": "Hidden",
 			"col.running": "Working",
 			"col.done": "Done",
 			"col.archive": "Archive",
@@ -206,6 +404,9 @@ window.__ModuleLoader__.load({
 			"card.subagents": "subagents: {count} ({running} running)",
 			"card.parent": "subagent of {parent}",
 			"card.mode": "Mode: {mode}",
+			"card.archive": "Archive",
+			"card.hide": "Hide",
+			"card.restore": "Restore",
 			"time.now": "just now",
 			"time.minAgo": "{count} min ago",
 			"time.hourAgo": "{count} h ago",
@@ -222,6 +423,9 @@ window.__ModuleLoader__.load({
 			"board.title": "Доска агентов",
 			"board.close": "Закрыть",
 			"board.resize": "Потяните, чтобы изменить размер",
+			"board.showHidden": "Показать скрытые ({count})",
+			"board.hideHidden": "Скрыть показанные ({count})",
+			"board.hiddenLabel": "Скрытые",
 			"col.running": "В работе",
 			"col.done": "Готово",
 			"col.archive": "Архив",
@@ -239,6 +443,9 @@ window.__ModuleLoader__.load({
 			"card.subagents": "субагентов: {count} ({running} в работе)",
 			"card.parent": "субагент «{parent}»",
 			"card.mode": "Режим: {mode}",
+			"card.archive": "В архив",
+			"card.hide": "Скрыть",
+			"card.restore": "Вернуть",
 			"time.now": "только что",
 			"time.minAgo": "{count} мин назад",
 			"time.hourAgo": "{count} ч назад",
@@ -289,9 +496,10 @@ window.__ModuleLoader__.load({
 		/**
 		 * One session card: 1) title 2) data 3) context percent 4) progress bar.
 		 * The bar renders on every card; an unmeasured session shows an empty track.
+		 * Hover actions: archive (done cards) / unhide (archive cards).
 		 * @param {object} props - { row, t, list, pending, descendants, actions, isArchived }
 		 */
-		function EntryCard({ row, t, list, pending, descendants, actions, isArchived }) {
+		function EntryCard({ row, t, list, pending, descendants, actions, isArchived, hiddenSet, showingHidden, restoredSet, onRestored, exitingSet }) {
 			const values = row.projectionValues || {};
 			const stats = values.sessionStats;
 			const percent = contextPercent(values.contextPressure);
@@ -308,8 +516,36 @@ window.__ModuleLoader__.load({
 			const when = relativeTime(row.updatedAt, t);
 			if (when) meta.push(when);
 			if (stats && stats.llmMs > 0) meta.push(t("card.llm", { duration: formatDuration(stats.llmMs) }));
+			const [cardRef, beginExit] = useExitAnimation();
+			// Only the Archive column passes the sets; other columns stay undefined
+			// and simply never count as hidden or restored.
+			const isHiddenRow = hiddenSet !== undefined && hiddenSet.has(row.id);
+			const isRestored = restoredSet !== undefined && restoredSet.has(row.id) && !isHiddenRow;
+			// A hidden row is only mounted while revealed; grow it in on mount.
+			// React reuses this instance when the row later moves to the visible
+			// group (stable key), so the restore needs its own effect below.
+			react.useLayoutEffect(() => {
+				if (!isHiddenRow || showingHidden !== true) return;
+				if (cardRef.current) playEnterAnimation(cardRef.current);
+			}, []);
+			// Grow the card in at its destination right after the restore commit,
+			// then drop the marker so the animation plays once per restore.
+			react.useLayoutEffect(() => {
+				if (!isRestored) return;
+				if (cardRef.current) playEnterAnimation(cardRef.current);
+				const timer = setTimeout(() => onRestored(row.id), EXIT_FADE_MS + EXIT_COLLAPSE_MS + 60);
+				return () => clearTimeout(timer);
+			}, [isRestored]);
+			// Dissolve out when the row joins the exiting batch ("Hide shown").
+			const isExiting = exitingSet !== undefined && exitingSet.has(row.id);
+			react.useLayoutEffect(() => {
+				if (!isExiting || !cardRef.current) return;
+				const cancel = playExitAnimation(cardRef.current);
+				return cancel === null ? undefined : cancel;
+			}, [isExiting]);
 			return react.createElement("button", {
 				type: "button",
+				ref: cardRef,
 				className: "aboard-card",
 				onClick: () => actions.openSession(row.id)
 			},
@@ -320,7 +556,31 @@ window.__ModuleLoader__.load({
 					typeof values.agentPreset === "string" && values.agentPreset !== "" ? react.createElement("span", {
 						className: "aboard-cardMode",
 						title: t("card.mode", { mode: values.agentPreset })
-					}, values.agentPreset) : null
+					}, values.agentPreset) : null,
+					react.createElement("span", { className: "aboard-cardActions" },
+						isArchived
+							? react.createElement("button", {
+								type: "button",
+								className: "aboard-cardAction",
+								onClick: (event) => {
+									event.stopPropagation();
+									// A hidden row never dissolves on restore — it grows back
+									// in at its destination via the restoreSession marker.
+									if (isHiddenRow) actions.restoreSession(row.id);
+									else beginExit(() => actions.hideSession(row.id));
+								}
+							}, isHiddenRow ? t("card.restore") : t("card.hide"))
+							: !row.running
+								? react.createElement("button", {
+									type: "button",
+									className: "aboard-cardAction",
+									onClick: (event) => {
+										event.stopPropagation();
+										beginExit(() => actions.archiveSession(row.id));
+									}
+								}, t("card.archive"))
+								: null
+					)
 				),
 				react.createElement("span", { className: "aboard-cardMeta" }, meta.map((text, index) => react.createElement("span", { key: index }, text))),
 				react.createElement("span", { className: "aboard-cardContext" },
@@ -342,27 +602,54 @@ window.__ModuleLoader__.load({
 				parent ? react.createElement("span", { className: "aboard-cardSub" }, t("card.parent", { parent })) : null
 			);
 		}
-		/** One board column: header with count plus the card stack. */
-		function Column({ titleKey, rows, emptyKey, isArchived, ...cardProps }) {
+		/**
+		 * One board column: header with count plus the card stack. The archive
+		 * column also renders the show-hidden toggle when rows are hidden.
+		 */
+		function Column({ titleKey, rows, emptyKey, isArchived, hiddenCount, showingHidden, onToggleShowHidden, hiddenSet, hiddenStart, restoredSet, onRestored, exitingSet, ...cardProps }) {
 			const t = cardProps.t;
+			// Hidden rows render below the visible ones, behind a labeled divider.
+			const children = [];
+			rows.forEach((row, index) => {
+				if (isArchived && hiddenStart >= 0 && index === hiddenStart) {
+					children.push(react.createElement("div", { className: "aboard-hiddenDivider", key: "aboard-hidden-divider" }, t("board.hiddenLabel")));
+				}
+				children.push(react.createElement(EntryCard, {
+					key: row.id,
+					row,
+					isArchived,
+					t: cardProps.t,
+					list: cardProps.list,
+					pending: cardProps.pending,
+					descendants: cardProps.descendants,
+					actions: cardProps.actions,
+					hiddenSet,
+					showingHidden,
+					restoredSet,
+					onRestored,
+					exitingSet
+				}));
+			});
 			return react.createElement("section", { className: "aboard-column" },
 				react.createElement("header", { className: "aboard-columnHead" },
 					react.createElement("span", null, t(titleKey)),
 					react.createElement("span", { className: "aboard-columnCount" }, String(rows.length))
 				),
+				// The hidden toggle leads the column body and stays pinned under the
+				// header while the list scrolls beneath it.
+				isArchived && hiddenCount > 0
+					? react.createElement("div", { className: "aboard-hiddenBar" },
+						react.createElement("button", {
+							type: "button",
+							className: "aboard-hiddenToggle",
+							onClick: onToggleShowHidden
+						}, showingHidden ? t("board.hideHidden", { count: hiddenCount }) : t("board.showHidden", { count: hiddenCount }))
+					)
+					: null,
 				react.createElement("div", { className: "aboard-columnBody" },
 					rows.length === 0
 						? react.createElement("p", { className: "aboard-empty" }, t(emptyKey))
-						: rows.map((row) => react.createElement(EntryCard, {
-							key: row.id,
-							row,
-							isArchived,
-							t: cardProps.t,
-							list: cardProps.list,
-							pending: cardProps.pending,
-							descendants: cardProps.descendants,
-							actions: cardProps.actions
-						}))
+						: children
 				)
 			);
 		}
@@ -375,6 +662,19 @@ window.__ModuleLoader__.load({
 			const t = resolveT(board, props.t);
 			const [layout, setLayout] = react.useState(() => readLayout() || defaultLayout());
 			const gesture = react.useRef(null);
+			const [hidden, setHidden] = react.useState(() => readHidden());
+			// Rows just restored from the hidden group: they replay the enter
+			// animation at their destination once, then the marker is dropped.
+			const [restored, setRestored] = react.useState(() => new Set());
+			const restoredRef = react.useRef(new Set());
+			// Hidden rows playing their exit dissolve after "Hide shown": they stay
+			// mounted (showingHidden held true) until the collapse finishes.
+			const [exiting, setExiting] = react.useState(() => new Set());
+			const exitingTimerRef = react.useRef(null);
+			react.useEffect(() => () => {
+				if (exitingTimerRef.current !== null) clearTimeout(exitingTimerRef.current);
+			}, []);
+			const [showingHidden, setShowingHidden] = react.useState(false);
 			const [tick, setTick] = react.useState(0);
 			react.useEffect(() => {
 				const timer = setInterval(() => setTick((value) => value + 1), 30000);
@@ -407,12 +707,71 @@ window.__ModuleLoader__.load({
 				() => deriveBoard(list, workspaces ? workspaces.archivedSessionIds : [], pending),
 				[list, workspaces, pending]
 			);
+			// Client-only view hiding: filtered copies keep the counts registry-true.
+			// `showingHidden` appends the hidden rows BELOW the visible ones — never
+			// mixed — so the two groups stay separated inside the Archive column.
+			const visible = react.useMemo(() => {
+				const notHidden = model.columns.archive.filter((row) => !hidden.has(row.id));
+				const hiddenRows = model.columns.archive.filter((row) => hidden.has(row.id));
+				// While the exit dissolve plays, only the leaving rows stay mounted;
+				// anything else removed from the hidden set mid-exit moves at once.
+				const shownHiddenRows = exiting.size > 0 ? hiddenRows.filter((row) => exiting.has(row.id)) : hiddenRows;
+				const filter = (rows) => rows.filter((row) => showingHidden || !hidden.has(row.id));
+				return {
+					columns: {
+						running: filter(model.columns.running),
+						done: filter(model.columns.done),
+						archive: showingHidden ? [...notHidden, ...shownHiddenRows] : notHidden
+					},
+					hiddenArchiveCount: hiddenRows.length,
+					hiddenStart: showingHidden ? notHidden.length : -1
+				};
+			}, [model, hidden, showingHidden, exiting]);
+			const toggleShowHidden = () => {
+				if (exiting.size > 0) return; // exit dissolve already in progress
+				if (showingHidden !== true) {
+					setShowingHidden(true);
+					return;
+				}
+				// Toggle-off: hold the hidden group mounted one more pass, play the
+				// exit dissolve, then commit the collapse to the hidden state.
+				const ids = new Set();
+				for (const row of model.columns.archive) if (hidden.has(row.id)) ids.add(row.id);
+				setExiting(ids);
+				exitingTimerRef.current = setTimeout(() => {
+					exitingTimerRef.current = null;
+					setExiting(new Set());
+					setShowingHidden(false);
+				}, EXIT_FADE_MS + EXIT_COLLAPSE_MS + 60);
+			};
 			const cardProps = {
 				t,
 				list,
 				pending,
 				descendants: model.descendants,
-				actions: props.actions
+				// archiveSession comes from the inject face (apply); hideSession is view-local.
+				actions: {
+					...props.actions,
+					hideSession: (id) => {
+						setHidden((prev) => toggleHidden(prev, id));
+					},
+					// Marking BEFORE the hidden-set update: the same render that moves
+					// the row into the visible group also arms its restore animation.
+					restoreSession: (id) => {
+						restoredRef.current.add(id);
+						setRestored(new Set(restoredRef.current));
+						setHidden((prev) => {
+							const next = new Set(prev);
+							next.delete(id);
+							writeHidden(next);
+							return next;
+						});
+					},
+					onRestoredDone: (id) => {
+						restoredRef.current.delete(id);
+						setRestored(new Set(restoredRef.current));
+					}
+				}
 			};
 			const beginGesture = (mode) => (event) => {
 				if (event.button !== 0) return;
@@ -473,9 +832,23 @@ window.__ModuleLoader__.load({
 						}, react.createElement(IconCloseOutline16, { size: 16 }))
 					),
 					react.createElement("div", { className: "aboard-columns" },
-						react.createElement(Column, { titleKey: "col.running", emptyKey: "col.empty", rows: model.columns.running, isArchived: false, ...cardProps }),
-						react.createElement(Column, { titleKey: "col.done", emptyKey: "col.empty", rows: model.columns.done, isArchived: false, ...cardProps }),
-						react.createElement(Column, { titleKey: "col.archive", emptyKey: "col.empty", rows: model.columns.archive, isArchived: true, ...cardProps })
+						react.createElement(Column, { titleKey: "col.running", emptyKey: "col.empty", rows: visible.columns.running, isArchived: false, ...cardProps }),
+						react.createElement(Column, { titleKey: "col.done", emptyKey: "col.empty", rows: visible.columns.done, isArchived: false, ...cardProps }),
+						react.createElement(Column, {
+							titleKey: "col.archive",
+							emptyKey: "col.empty",
+							rows: visible.columns.archive,
+							isArchived: true,
+							hiddenCount: visible.hiddenArchiveCount,
+							showingHidden,
+							onToggleShowHidden: toggleShowHidden,
+							hiddenSet: hidden,
+							hiddenStart: visible.hiddenStart,
+							restoredSet: restored,
+							onRestored: props.actions.onRestoredDone,
+							exitingSet: exiting,
+							...cardProps
+						})
 					),
 					react.createElement("span", { className: "aboard-grip aboard-gripE", onPointerDown: beginGesture("resize-e") }),
 					react.createElement("span", { className: "aboard-grip aboard-gripS", onPointerDown: beginGesture("resize-s") }),
@@ -586,6 +959,15 @@ window.__ModuleLoader__.load({
 					if (address !== undefined) ctx.sessions.openSubagent(address);
 					else ctx.sessions.open(id);
 					view.set({ open: false });
+				},
+				archiveSession: (id) => {
+					// Optional service: the verb exists only when the workspace
+					// controller is composed in; the button hides itself otherwise.
+					const workspaces = ctx.get("workspaces");
+					if (workspaces === undefined) return Promise.resolve();
+					return workspaces.archiveSession(id).catch(() => {
+						// Host-side rejection (unknown or currently open session): keep the board as-is.
+					});
 				}
 			};
 			const face = () => ({
