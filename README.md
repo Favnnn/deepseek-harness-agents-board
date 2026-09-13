@@ -2,7 +2,7 @@
 
 The agents board plugin for the DeepSeek Harness web GUI: one panel with every agent and subagent across all chats — steps, context, tokens, presets, live counters.
 
-Plugin version: **1.12.1**.
+Plugin version: **1.13.0**.
 
 > **Languages / Языки:** English first, the Russian original follows after the divider.
 > Английская версия — полный перевод русской части; обе описывают одну и ту же версию.
@@ -17,9 +17,11 @@ Requirements: an installed DeepSeek Harness (a repository clone with `pnpm insta
 powershell -ExecutionPolicy Bypass -File install.ps1
 ```
 
+Or just double-click **`install.bat`** in this folder — a plain cmd wrapper that runs `install.ps1` from its own location and keeps the console window open until you press a key.
+
 The script (run from the plugin folder):
 
-1. Copies the **whole folder** — `package.json`, `host.mjs`, `client.js`, `install.ps1`, `uninstall.ps1`, `README.md`, `cordis.patch.yml` — into `%DSH_HOME%\plugins\dsh-agents-board\`. That copy is the live plugin.
+1. Copies the **whole folder** — `package.json`, `host.mjs`, `client.js`, `install.ps1`, `install.bat`, `uninstall.ps1`, `uninstall.bat`, `README.md`, `cordis.patch.yml` — into `%DSH_HOME%\plugins\dsh-agents-board\`. That copy is the live plugin.
 2. Adds a managed row to `%DSH_HOME%\profiles\web\cordis.patch.yml` (marked `# dsh-agents-board (managed by install.ps1)`), pointing at `…\plugins\dsh-agents-board\host.mjs`.
 3. Rewrites `cordis.patch.yml` in the master folder — an informational copy of the installed row only.
 
@@ -33,6 +35,8 @@ After installing, restart `pnpm dsh web` and refresh the page (F5). The client m
 powershell -ExecutionPolicy Bypass -File uninstall.ps1
 ```
 
+(or double-click **`uninstall.bat`**).
+
 The script works the same from the master folder and from the installed copy (`%DSH_HOME%\plugins\dsh-agents-board\uninstall.ps1`). It:
 
 1. Removes the managed row from `%DSH_HOME%\profiles\web\cordis.patch.yml`.
@@ -45,7 +49,7 @@ The master folder is left untouched. Restart `pnpm dsh web` afterwards.
 
 1. Copy the whole `dsh-agents-board` folder to the other PC at any path (for example `C:\Tools\dsh-agents-board`) — USB drive, archive, network.
 2. That PC needs the harness installed and `pnpm dsh web` run at least once (see the requirements above).
-3. Run `powershell -ExecutionPolicy Bypass -File C:\Tools\dsh-agents-board\install.ps1` — the script locates its own folder (`$PSScriptRoot`), copies everything into `%DSH_HOME%\plugins\dsh-agents-board\`, and writes the row into the profile patch. pnpm is not needed to install the plugin.
+3. Run `powershell -ExecutionPolicy Bypass -File C:\Tools\dsh-agents-board\install.ps1` — or just double-click `C:\Tools\dsh-agents-board\install.bat` — the script locates its own folder (`$PSScriptRoot`), copies everything into `%DSH_HOME%\plugins\dsh-agents-board\`, and writes the row into the profile patch. pnpm is not needed to install the plugin.
 4. Restart `pnpm dsh web` and refresh the page — the board appears on its own.
 
 ## What appears in the interface
@@ -76,7 +80,7 @@ The panel can be **moved by its header** and **resized** by the right edge, the 
 
 ### The agent card — four lines
 
-1. **Task name** (the session title; long names truncate — the full text is in the tooltip), the status dot (running/done/archived), the "awaiting reply" mark for sessions with pending interactions, and the **preset badge** in the top-right corner — the agent preset (`creator`, `standard`, …) from the session's `agentPreset` projection; shown only when set.
+1. **Task name** (the session title; long names truncate — the full text is in the tooltip), the status dot (running/done/archived), the "awaiting reply" mark for sessions with pending interactions — **while a session waits, the whole card interior is tinted red inside its border** (an 18% mix of `state-error-primary` over the panel; a deeper 30% mix on hover; the token itself flips red-600 ↔ red-400 between light and dark themes) — and the **preset badge** in the top-right corner — the agent preset (`creator`, `standard`, …) from the session's `agentPreset` projection; shown only when set.
 2. **Data**: `steps · turns` (the `sessionStats` projection), total tokens (four disjoint buckets), last activity time ("N min ago", "N h ago", a date), and total LLM time.
 3. **Context**: a line like "context 33%" — the share of the context window from the pressure projection (`projectedTokens ?? pressureTokens` over `contextWindow`); until measured — "context —".
 4. **The context progress bar** — present on every card: the filled part is green below 60%, yellow from 60–89%, red at 90% and above; the unfilled remainder of the line is light gray. Until the context is measured, the bar is empty.
@@ -103,7 +107,9 @@ A framed area with two settings; both apply immediately, without a restart (valu
 | `host.mjs` | host half: the `agents-board` settings section (`enabled`, `language`), no imports |
 | `client.js` | browser bundle: columns, counters, cards, progress bars, button, switch, drag/resize |
 | `install.ps1` | one-run installation (copy into `%DSH_HOME%\plugins\` + the profile-patch row) |
+| `install.bat` | classic double-click wrapper around `install.ps1` |
 | `uninstall.ps1` | one-run removal (the row + the installed copy + the settings section) |
+| `uninstall.bat` | classic double-click wrapper around `uninstall.ps1` |
 | `cordis.patch.yml` | informational copy of the installed row (rewritten by install.ps1, not used on its own) |
 | `README.md` | this file; copied into the installed folder |
 
@@ -121,7 +127,7 @@ A framed area with two settings; both apply immediately, without a restart (valu
 
 Плагин-«доска агентов» для web GUI DeepSeek Harness: одна панель со всеми агентами и субагентами из всех чатов — шаги, контекст, токены, режимы, живые счётчики.
 
-Версия плагина: **1.12.1**.
+Версия плагина: **1.13.0**.
 
 ## Установка
 
@@ -131,9 +137,11 @@ A framed area with two settings; both apply immediately, without a restart (valu
 powershell -ExecutionPolicy Bypass -File install.ps1
 ```
 
+Или просто двойной клик по **`install.bat`** в этой папке — классическая cmd-обёртка, которая запускает `install.ps1` из своего же расположения и держит окно консоли открытым до нажатия клавиши.
+
 Скрипт (запускаемый из папки плагина):
 
-1. Копирует **всю папку** — `package.json`, `host.mjs`, `client.js`, `install.ps1`, `uninstall.ps1`, `README.md`, `cordis.patch.yml` — в `%DSH_HOME%\plugins\dsh-agents-board\`. Эта копия и есть живой плагин.
+1. Копирует **всю папку** — `package.json`, `host.mjs`, `client.js`, `install.ps1`, `install.bat`, `uninstall.ps1`, `uninstall.bat`, `README.md`, `cordis.patch.yml` — в `%DSH_HOME%\plugins\dsh-agents-board\`. Эта копия и есть живой плагин.
 2. Добавляет управляемую строку в `%DSH_HOME%\profiles\web\cordis.patch.yml` (помечена маркером `# dsh-agents-board (managed by install.ps1)`), указывающую на `…\plugins\dsh-agents-board\host.mjs`.
 3. Переписывает `cordis.patch.yml` в мастер-папке — это только информационная копия установленного ряда.
 
@@ -147,6 +155,8 @@ powershell -ExecutionPolicy Bypass -File install.ps1
 powershell -ExecutionPolicy Bypass -File uninstall.ps1
 ```
 
+(или двойной клик по **`uninstall.bat`**).
+
 Скрипт работает одинаково из мастер-папки и из установленной копии (`%DSH_HOME%\plugins\dsh-agents-board\uninstall.ps1`). Он:
 
 1. Убирает управляемую строку из `%DSH_HOME%\profiles\web\cordis.patch.yml`.
@@ -159,7 +169,7 @@ powershell -ExecutionPolicy Bypass -File uninstall.ps1
 
 1. Скопируйте всю папку `dsh-agents-board` на другой ПК в любой путь (например `C:\Tools\dsh-agents-board`) — флешкой, архивом, по сети.
 2. На том ПК должен быть установлен harness и хотя бы раз запущен `pnpm dsh web` (см. требования выше).
-3. Запустите `powershell -ExecutionPolicy Bypass -File C:\Tools\dsh-agents-board\install.ps1` — скрипт сам определит свою папку (`$PSScriptRoot`), скопирует всё в `%DSH_HOME%\plugins\dsh-agents-board\` и впишет строку в профильный патч. pnpm для установки плагина не нужен.
+3. Запустите `powershell -ExecutionPolicy Bypass -File C:\Tools\dsh-agents-board\install.ps1` — или просто двойной клик по `C:\Tools\dsh-agents-board\install.bat` — скрипт сам определит свою папку (`$PSScriptRoot`), скопирует всё в `%DSH_HOME%\plugins\dsh-agents-board\` и впишет строку в профильный патч. pnpm для установки плагина не нужен.
 4. Перезапустите `pnpm dsh web` и обновите страницу — доска появится сама.
 
 ## Что появляется в интерфейсе
@@ -190,7 +200,7 @@ powershell -ExecutionPolicy Bypass -File uninstall.ps1
 
 ### Карточка агента — четыре строки
 
-1. **Имя задачи** (заголовок сессии, длинные имена обрезаются; полный текст — в подсказке), точка статуса (запущена/готова/архив), пометка «ждёт ответа» для сессий с ожидающими интеракциями и **бейдж режима** в правом верхнем углу — пресет агента (`creator`, `standard`, …) из проекции сессии `agentPreset`; показывается, только если задан.
+1. **Имя задачи** (заголовок сессии, длинные имена обрезаются; полный текст — в подсказке), точка статуса (запущена/готова/архив), пометка «ждёт ответа» для сессий с ожидающими интеракциями — **пока сессия ждёт, фон карточки целиком внутри рамки заливаются красным** (смесь 18% `state-error-primary` с прозрачностью; при наведении — насыщеннее, 30%; сам токен переключается red-600 ↔ red-400 между светлой и тёмной темами) и **бейдж режима** в правом верхнем углу — пресет агента (`creator`, `standard`, …) из проекции сессии `agentPreset`; показывается, только если задан.
 2. **Данные**: `шагов · ходов` (проекция `sessionStats`), суммарные токены (четыре disjoint-бакета), время последней активности («N мин назад», «N ч назад», дата) и суммарное время LLM.
 3. **Контекст**: строка вида «контекст 33%» — доля окна контекста из проекции давления (`projectedTokens ?? pressureTokens` к `contextWindow`); пока не измерено — «контекст —».
 4. **Прогресс-бар контекста** — есть у каждой карточки: заполненная часть зелёная до 60%, жёлтая 60–89%, красная от 90%; незаполненный остаток линии — ярко-серый. Пока контекст не измерен, бар пустой.
@@ -217,7 +227,9 @@ powershell -ExecutionPolicy Bypass -File uninstall.ps1
 | `host.mjs` | host-половина: секция настроек `agents-board` (`enabled`, `language`), без импортов |
 | `client.js` | клиентский бандл: колонки, счётчики, карточки, прогресс-бары, кнопка, переключатель, drag/resize |
 | `install.ps1` | подключение одним запуском (копия в `%DSH_HOME%\plugins\` + ряд в профильном патче) |
+| `install.bat` | классическая обёртка двойного клика над `install.ps1` |
 | `uninstall.ps1` | удаление одним запуском (ряд + установленная копия + раздел настроек) |
+| `uninstall.bat` | классическая обёртка двойного клика над `uninstall.ps1` |
 | `cordis.patch.yml` | информационная копия установленного ряда (переписывается install.ps1, сам по себе не используется) |
 | `README.md` | этот файл; копируется в установленную папку |
 

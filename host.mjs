@@ -64,21 +64,22 @@ export function apply(ctx, config) {
   boardState.enabled = resolved.enabled
   boardState.language = resolved.language
 
-  const settings = ctx.get('settings')
-  if (settings === undefined) {
-    ctx.logger?.warn?.('agents-board: settings service absent; the GUI toggle will not appear')
-    return
+  // The settings service may mount after this row (file:// inserts run early
+  // in the layer); wait for it reactively. A one-shot ctx.get raced the
+  // provider and silently cost the board its settings card.
+  const registerSection = (settingsCtx) => {
+    settingsCtx.settings.installSection(settingsCtx, 'agents-board', createAgentsBoardSchema(), { enabled: boardState.enabled, language: boardState.language }, {
+      setSource: (current) => {
+        boardState.enabled = current.enabled !== false
+        boardState.language = LANGUAGES.includes(current.language) ? current.language : 'auto'
+      },
+      onChange: () => {
+        ctx.logger?.debug?.('agents-board: enabled=%s language=%s', boardState.enabled, boardState.language)
+      },
+    })
   }
-
-  settings.installSection(ctx, 'agents-board', createAgentsBoardSchema(), { enabled: boardState.enabled, language: boardState.language }, {
-    setSource: (current) => {
-      boardState.enabled = current.enabled !== false
-      boardState.language = LANGUAGES.includes(current.language) ? current.language : 'auto'
-    },
-    onChange: () => {
-      ctx.logger?.debug?.('agents-board: enabled=%s language=%s', boardState.enabled, boardState.language)
-    },
-  })
+  if (ctx.get('settings') !== undefined) registerSection(ctx)
+  else ctx.inject(['settings'], registerSection)
 }
 
 /** Current resolved board state (host-side fallback when settings are absent). */

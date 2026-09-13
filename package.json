@@ -1,6 +1,6 @@
 {
 	"name": "dsh-agents-board",
-	"version": "1.12.1",
+	"version": "1.13.3",
 	"private": true,
 	"type": "module",
 	"dsh": {
@@ -8,7 +8,8 @@
 			"patch": "./cordis.patch.yml"
 		},
 		"client": {
-			"platform": "web"
+			"platform": "web",
+			"inject": ["@deepseek-ai/dsh-client-ui-settings-plugins"]
 		}
 	},
 	"exports": {

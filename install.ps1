@@ -25,7 +25,7 @@ if ([string]::IsNullOrEmpty($DshHome)) { $DshHome = Join-Path $env:USERPROFILE '
 # --- Copy the whole folder into the harness home ---------------------------------
 $InstallDir = Join-Path $DshHome 'plugins/dsh-agents-board'
 New-Item -ItemType Directory -Force -Path $InstallDir | Out-Null
-foreach ($File in @('package.json', 'host.mjs', 'client.js', 'install.ps1', 'uninstall.ps1', 'README.md', 'cordis.patch.yml')) {
+foreach ($File in @('package.json', 'host.mjs', 'client.js', 'install.ps1', 'install.bat', 'uninstall.ps1', 'uninstall.bat', 'README.md', 'cordis.patch.yml')) {
   $From = (Resolve-Path (Join-Path $PluginDir $File)).Path
   $To = Join-Path $InstallDir $File
   if ($From -ne $To) { Copy-Item -Force $From $To }
